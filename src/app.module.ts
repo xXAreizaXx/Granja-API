@@ -5,7 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 // Modules
 import { ClientsModule } from "./clients/clients.module";
 import { PorcinesModule } from "./porcines/porcines.module";
-import { FeedsModule } from './feeds/feeds.module';
+import { FeedsModule } from "./feeds/feeds.module";
 
 // TypeORM
 import "reflect-metadata";
@@ -14,14 +14,14 @@ import "reflect-metadata";
     controllers: [],
     imports: [
         TypeOrmModule.forRoot({
-            database: "nestdb",
+            database: process.env.PGDATABASE || "nestdb",
             entities: [__dirname + "/**/*.entity{.ts,.js}"],
-            host: "localhost",
-            password: "Jorgea2001",
+            host: process.env.PGHOST || "localhost",
+            password: process.env.PGPASSWORD || "Jorgea2001",
             port: 5432,
             synchronize: true,
             type: "postgres",
-            username: "postgres",
+            username: process.env.PGUSER || "postgres",
         }),
         PorcinesModule,
         ClientsModule,
