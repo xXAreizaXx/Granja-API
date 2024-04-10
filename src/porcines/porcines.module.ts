@@ -10,10 +10,11 @@ import { PorcinesController } from "./porcines.controller";
 
 // Entity
 import { Porcine } from "./porcine.entity";
+import { PorcinesResolver } from './porcines.resolver';
 
 @Module({
     controllers: [PorcinesController],
     imports: [TypeOrmModule.forFeature([Porcine])],
-    providers: [PorcinesService],
+    providers: [PorcinesService, PorcinesResolver],
 })
 export class PorcinesModule {}

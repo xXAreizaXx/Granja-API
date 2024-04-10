@@ -10,10 +10,11 @@ import { ClientsController } from "./clients.controller";
 
 // Entity
 import { Client } from "./client.entity";
+import { ClientsResolver } from './clients.resolver';
 
 @Module({
     controllers: [ClientsController],
     imports: [TypeOrmModule.forFeature([Client])],
-    providers: [ClientsService],
+    providers: [ClientsService, ClientsResolver],
 })
 export class ClientsModule {}

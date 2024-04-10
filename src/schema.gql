@@ -1,0 +1,71 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Feed {
+  id: ID!
+  description: String!
+  dose: String!
+  porcines: [Porcine!]!
+}
+
+type Porcine {
+  id: ID!
+  breed: String!
+  age: Int!
+  weight: Float!
+  feed: Feed!
+  client: Client!
+}
+
+type Client {
+  id: ID!
+  document: String!
+  name: String!
+  lastName: String!
+  address: String!
+  cellphone: String!
+  porcines: [Porcine!]!
+}
+
+type Query {
+  porcines: [Porcine!]!
+  porcine(id: Float!): Porcine!
+  clients: [Client!]!
+  client(id: Float!): Client!
+  feeds: [Feed!]!
+  feed(id: Float!): Feed!
+}
+
+type Mutation {
+  createPorcine(createPorcineInput: CreatePorcineDto!): Porcine!
+  updatePorcine(id: Float!, updatePorcineInput: CreatePorcineDto!): Porcine!
+  removePorcine(id: Float!): Porcine!
+  createClient(createClientInput: CreateClientDto!): Client!
+  updateClient(id: Float!, updateClientInput: CreateClientDto!): Client!
+  removeClient(id: Float!): Client!
+  createFeed(createFeedInput: CreateFeedDto!): Feed!
+  updateFeed(id: Float!, updateFeedInput: CreateFeedDto!): Feed!
+  removeFeed(id: Float!): Feed!
+}
+
+input CreatePorcineDto {
+  breed: String!
+  age: Int!
+  weight: Int!
+  feedId: Int!
+  clientId: Int!
+}
+
+input CreateClientDto {
+  document: String!
+  name: String!
+  lastName: String!
+  address: String!
+  cellphone: String!
+}
+
+input CreateFeedDto {
+  description: String!
+  dose: String!
+}
