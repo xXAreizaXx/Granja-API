@@ -6,6 +6,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ClientsModule } from "./clients/clients.module";
 import { PorcinesModule } from "./porcines/porcines.module";
 import { FeedsModule } from "./feeds/feeds.module";
+import { ReportesModule } from './reportes/reportes.module';
 
 // TypeORM
 import "reflect-metadata";
@@ -26,6 +27,7 @@ import "reflect-metadata";
         PorcinesModule,
         ClientsModule,
         FeedsModule,
+        ReportesModule,
     ],
     providers: [],
 })
